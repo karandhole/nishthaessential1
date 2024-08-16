@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials Carousel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .container12 {
+            background: linear-gradient(to left, #e0af4c, #2dbdf0);
+            color: #fff;
+        }
+
+        .wrapper {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            padding-bottom: 15px;
+        }
+
+        .section-header h2 {
+            font-weight: 700;
+        }
+
+        .icon-area {
+            text-align: center;
+        }
+
+        .icon-area i {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            width: 60%;
+            margin: auto;
+        }
+
+        .img-area {
+            width: 100px;
+            height: 100px;
+            display: block;
+            margin: auto;
+            overflow: hidden;
+            border: 10px inset #fff;
+            margin-bottom: 30px;
+        }
+
+        .img-area img {
+            width: 100%;
+        }
+
+        .content h5 {
+            font-weight: 900;
+            margin-top: 15px;
+        }
+
+        .carousel-indicators {
+            bottom: -80px;
+            text-align: center;
+        }
+
+        .carousel-indicators button {
+            width: 60px;
+            height: 10px;
+            background-color: #fff;
+            border: none;
+            margin: 2px;
+            cursor: pointer;
+        }
+
+        @media (min-width: 768px) and (max-width: 991px) {
+            .content p {
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .wrapper {
+                padding: 30px 0;
+            }
+
+            .content p {
+                width: 100%;
+            }
+
+            .icon-area i {
+                font-size: 50px;
+            }
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container12">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="carouselExampleIndicators" class="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="content text-center">
+                                    <div class="icon-area animated zoomIn" style="animation-delay: 1s">
+                                        <i class="fa fa-quote-right"></i>
+                                    </div>
+                                    <div class="img-area animated zoomIn" style="animation-delay: 2s">
+                                        <img src="img/1.jpg" alt="">
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit reiciendis necessitatibus laborum numquam consequuntur possimus magnam expedita ipsam illum voluptatem quia assumenda placeat, at asperiores vitae obcaecati. Reprehenderit nesciunt voluptatem excepturi, libero ipsum tempora perspiciatis.</p>
+                                    <h5>Jasper Kane</h5>
+                                    <h6>Web Developer</h6>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="content text-center">
+                                    <div class="icon-area animated zoomIn" style="animation-delay: 1s">
+                                        <i class="fa fa-quote-right"></i>
+                                    </div>
+                                    <div class="img-area animated zoomIn" style="animation-delay: 2s">
+                                        <img src="img/2.jpg" alt="">
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit reiciendis necessitatibus laborum numquam consequuntur possimus magnam expedita ipsam illum voluptatem quia assumenda placeat, at asperiores vitae obcaecati. Reprehenderit nesciunt voluptatem excepturi, libero ipsum tempora perspiciatis.</p>
+                                    <h5>Thomas Jones</h5>
+                                    <h6>Graphics Designer</h6>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="content text-center">
+                                    <div class="icon-area animated zoomIn" style="animation-delay: 1s">
+                                        <i class="fa fa-quote-right"></i>
+                                    </div>
+                                    <div class="img-area animated zoomIn" style="animation-delay: 2s">
+                                        <img src="img/3.jpg" alt="">
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit reiciendis necessitatibus laborum numquam consequuntur possimus magnam expedita ipsam illum voluptatem quia assumenda placeat, at asperiores vitae obcaecati. Reprehenderit nesciunt voluptatem excepturi, libero ipsum tempora perspiciatis.</p>
+                                    <h5>Ethan Miller</h5>
+                                    <h6>UI/UX Designer</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const carousel = document.querySelector('#carouselExampleIndicators');
+            const carouselIndicators = document.querySelectorAll('.carousel-indicators button');
+            const carouselInner = document.querySelector('.carousel-inner');
+            const carouselItems = document.querySelectorAll('.carousel-item');
+            let currentIndex = 0;
+            const intervalTime = 3000; // 3 seconds
+
+            function showSlide(index) {
+                const offset = -index * 100;
+                carouselInner.style.transform = `translateX(${offset}%)`;
+                carouselIndicators.forEach((indicator, i) => {
+                    indicator.classList.toggle('active', i === index);
+                });
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % carouselItems.length;
+                showSlide(currentIndex);
+            }
+
+            let interval = setInterval(nextSlide, intervalTime);
+
+            carouselIndicators.forEach((indicator, i) => {
+                indicator.addEventListener('click', () => {
+                    clearInterval(interval);
+                    currentIndex = i;
+                    showSlide(currentIndex);
+                    interval = setInterval(nextSlide, intervalTime);
+                });
+            });
+
+            carousel.addEventListener('mouseenter', () => {
+                clearInterval(interval);
+            });
+
+            carousel.addEventListener('mouseleave', () => {
+                interval = setInterval(nextSlide, intervalTime);
+            });
+        });
+    </script>
+</body>
+</html>
